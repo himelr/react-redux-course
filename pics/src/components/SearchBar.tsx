@@ -6,9 +6,9 @@ interface Props {
 
 class SearchBar extends React.Component<Props> {
 
-	state = { term: 'Hi' }
+	state = {term: ''}
 
-	onFormSubmit = (e: React.FormEvent<EventTarget>) => {
+	onFormSubmit(e: React.FormEvent<EventTarget>) {
 		e.preventDefault();
 		this.props.search(this.state.term);
 	}
@@ -16,12 +16,11 @@ class SearchBar extends React.Component<Props> {
 	render() {
 		return (
 			<div className="ui segment">
-				<form className="ui form" onSubmit={this.onFormSubmit}>
+				<form className="ui form" onSubmit={(e) => this.onFormSubmit(e)}>
 					<div className="field">
 						<label htmlFor="search">Image search</label>
-						<input id="search" type="text" value={this.state.term} onChange={(e) => this.setState({ term: e.target.value })}></input>
+						<input id="search" type="text" value={this.state.term} onChange={(e) => this.setState({term: e.target.value})}></input>
 					</div>
-					<button type="submit" className="ui button"></button>
 				</form>
 			</div>
 		)
