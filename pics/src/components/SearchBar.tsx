@@ -1,9 +1,9 @@
 import React from 'react';
 
-
 interface Props {
 	search: (search: string) => void;
 }
+
 class SearchBar extends React.Component<Props> {
 
 	state = { term: 'Hi' }
